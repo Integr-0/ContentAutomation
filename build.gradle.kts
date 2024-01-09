@@ -19,6 +19,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.github.javafaker:javafaker:1.0.2")
     implementation("io.github.ikfly:java-tts:1.0.2")
+    implementation("net.bramp.ffmpeg:ffmpeg:0.8.0")
+
 }
 
 tasks.test {
