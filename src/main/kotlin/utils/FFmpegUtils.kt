@@ -4,10 +4,9 @@ import net.bramp.ffmpeg.FFmpeg
 import net.bramp.ffmpeg.FFmpegExecutor
 import net.bramp.ffmpeg.FFprobe
 import net.bramp.ffmpeg.builder.FFmpegBuilder
-import java.util.concurrent.TimeUnit
 
 
-class FFMPEGUtils {
+class FFmpegUtils {
     companion object {
         val ffmpeg = FFmpeg("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
         val ffprobe = FFprobe("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")

@@ -20,14 +20,14 @@ fun main(args: Array<String>) {
 
         val name = vid.ttsFile.substringBefore(".mp3")
 
-        FFMPEGUtils.edit(
+        FFmpegUtils.edit(
             "$dir\\entries\\download\\$backVid",
             "$dir\\entries\\vids\\${vid.ttsFile}",
             name
         )
 
         SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4")
-        FFMPEGUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
+        FFmpegUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
         FileUtils.cleanUp(name)
 
         println()
