@@ -1,7 +1,6 @@
 package utils
 
 import java.io.BufferedReader
-import java.io.Console
 import java.io.InputStreamReader
 import java.nio.file.Files
 import kotlin.io.path.Path
@@ -40,13 +39,18 @@ class FileUtils {
             }
         }
 
-        fun CleanUp(name: String) {
+        fun cleanUp(name: String) {
+            println("|| Cleaning up temp files")
             val dir = System.getProperty("user.dir")
             for (f in Files.list(Path("$dir\\entries\\vids\\"))) {
                 if (f.name.startsWith(name)) {
                     Files.delete(f.toAbsolutePath())
                 }
             }
+        }
+
+        fun fixPathForSubAdd(string: String): String {
+            return string.replace("\\", "\\\\\\\\").replace("C:", "C\\\\\\:")
         }
     }
 }

@@ -9,19 +9,23 @@ class SubtitleGenerator {
         fun genSub(filename: String) {
             val dir = System.getProperty("user.dir")
 
+            println("|| Generating subtitle .ass file")
             val p: Process =
-                Runtime.getRuntime().exec(String.format("$dir/venv/Scripts/python $dir/SubtitleGeneration/main.py $filename"));
+                Runtime.getRuntime().exec(String.format("$dir\\venv\\Scripts\\python $dir\\SubtitleGeneration\\main.py $filename"));
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))
 
-            var s = ""
-            while (stdInput.readLine() != null && (stdInput.readLine().also { s = it }) != null) {
-                println(s)
-            }
+            try {
+                while (stdInput.readLine() != null) {
+                    // Wait
+                }
 
-            while (stdError.readLine() != null && (stdError.readLine().also { s = it }) != null) {
-                println(s)
+                while (stdError.readLine() != null) {
+                    // Wait
+                }
+            } catch (e: NullPointerException) {
+                // Nope
             }
         }
     }

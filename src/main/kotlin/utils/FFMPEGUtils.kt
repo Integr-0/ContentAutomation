@@ -12,16 +12,18 @@ class FFMPEGUtils {
         val ffmpeg = FFmpeg("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
         val ffprobe = FFprobe("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
 
-        fun edit(inputVid: String, inputSub: String, durationSecs: Int) {
+        fun edit(inputVid: String, inputSub: String, name: String) {
             val dir = System.getProperty("user.dir")
+
+            println("|| Cutting video to length")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe.probe(inputVid))
                 .addInput(ffprobe.probe(inputSub))
                 .overrideOutputFiles(true)
-                .addOutput("$dir\\entries\\vids\\${inputVid.substringBefore(".mp4").substringAfter("\\")}.mp4")
+                .addOutput("$dir\\entries\\vids\\$name-cut.mp4")
                 .addExtraArgs("-map", "0:v")
                 .addExtraArgs("-map", "1:a")
-                .setDuration(durationSecs.toLong(), TimeUnit.SECONDS)
+                .addExtraArgs("-shortest")
                 .done()
 
             val executor = FFmpegExecutor(ffmpeg, ffprobe)
@@ -31,6 +33,8 @@ class FFMPEGUtils {
 
         fun addSubtitles(inputVid: String, inputSub: String, outPutName: String) {
             val dir = System.getProperty("user.dir")
+
+            println("|| Adding subtitle .ass file to video")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe.probe(inputVid))
                 .overrideOutputFiles(true)

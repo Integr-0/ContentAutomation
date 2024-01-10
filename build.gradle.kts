@@ -20,6 +20,7 @@ dependencies {
     implementation("com.github.javafaker:javafaker:1.0.2")
     implementation("io.github.ikfly:java-tts:1.0.2")
     implementation("net.bramp.ffmpeg:ffmpeg:0.8.0")
+    implementation("org.slf4j:slf4j-nop:2.0.7")
 
 }
 

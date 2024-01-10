@@ -37,6 +37,39 @@ class Generator {
             return Pair(VideoContainer(videos).toJson(), name)
         }
 
+        fun genVideoData(amount: Int, perVideo: Int): VideoContainer {
+            println("Generating video content")
+
+            val name =
+                (LocalDate.now().dayOfMonth.toString()
+                        + "-" + LocalDate.now().monthValue.toString()
+                        + "-" + LocalDate.now().year.toString()
+                        + "-" + LocalTime.now().second.toString()
+                        + "-" + LocalTime.now().minute.toString()
+                        + "-" + LocalTime.now().hour.toString())
+
+            val videos: MutableList<VideoObject> = mutableListOf()
+            val outro = "Follow us for more!"
+
+            for (i in (1..amount)) {
+                var ttsText = ""
+
+                val jokes: MutableList<String> = mutableListOf()
+                for (it in (1..perVideo)) {
+                    val joke = readAPI().filter { c -> c != '\n' && c != '"' }
+                    ttsText += "$joke "
+                    jokes += joke
+                }
+
+                ttsText += " $outro"
+                println("|| Generating TTS: $i/$amount")
+                TTSGen.genTTS(ttsText, i, name)
+                videos += VideoObject("Jokes Part $i", "Jokes", jokes, outro, name+"_"+i+".mp3")
+            }
+
+            return VideoContainer(videos)
+        }
+
         private fun readAPI(): String {
             return if (Faker.instance().number().numberBetween(0, 3) == 0) {
                 Faker.instance().chuckNorris().fact()
