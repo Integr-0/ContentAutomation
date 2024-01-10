@@ -20,6 +20,6 @@ fun main(args: Array<String>) {
         30
     )*/
 
-    //SubtitleGenerator.genSub("C:\\Users\\erikr\\Desktop\\Misc\\JokeAPI\\entries\\vids\\Parkour_Background-cut.mp4")
+    SubtitleGenerator.genSub("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\download\\Parkour_Background.mp4")
     //FFMPEGUtils.addSubtitles("C:\\Users\\erikr\\Desktop\\Misc\\JokeAPI\\entries\\vids\\Parkour_Background-cut.mp4", "C\\\\\\:\\\\\\\\Users\\\\\\\\erikr\\\\\\\\Desktop\\\\\\\\Misc\\\\\\\\JokeAPI\\\\\\\\entries\\\\\\\\vids\\\\\\\\Parkour_Background-cut-sub.ass", "FinalVid")
 }

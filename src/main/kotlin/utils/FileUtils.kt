@@ -25,7 +25,7 @@ class FileUtils {
             Files.createDirectories(Path("$dir/entries/download/"))
 
             val p: Process =
-                Runtime.getRuntime().exec(String.format("yt-dlp -o \"$dir\\entries\\download\\$name.mp4\" $url"));
+                Runtime.getRuntime().exec(String.format("yt-dlp -f mp4 -o \"$dir\\entries\\download\\$name.mp4\" $url"));
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))
