@@ -13,7 +13,7 @@ class TTSGen {
             val ssml = SSML.builder()
                 .outputFormat(OutputFormat.audio_24khz_48kbitrate_mono_mp3)
                 .synthesisText(text)
-                .outputFileName("./entries/saves/${name}_$partNum")
+                .outputFileName("./entries/vids/${name}_$partNum")
                 .voice(VoiceEnum.en_US_RogerNeural)
                 .build()
 

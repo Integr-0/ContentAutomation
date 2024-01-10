@@ -10,7 +10,7 @@ import java.time.LocalTime
 
 class Generator {
     companion object {
-        fun genVideoJson(amount: Int, perVideo: Int): Pair<String, String> {
+        fun genVideoDataJson(amount: Int, perVideo: Int): Pair<String, String> {
             val name =
                 (LocalDate.now().dayOfMonth.toString()
                         + "-" + LocalDate.now().monthValue.toString()

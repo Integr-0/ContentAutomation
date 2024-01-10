@@ -5,6 +5,7 @@ import java.io.Console
 import java.io.InputStreamReader
 import java.nio.file.Files
 import kotlin.io.path.Path
+import kotlin.io.path.name
 
 
 class FileUtils {
@@ -21,10 +22,10 @@ class FileUtils {
 
         fun downloadYT(url: String, name: String) {
             val dir = System.getProperty("user.dir")
-            Files.createDirectories(Path("$dir/entries/vids/"))
+            Files.createDirectories(Path("$dir/entries/download/"))
 
             val p: Process =
-                Runtime.getRuntime().exec(String.format("yt-dlp -o \"$dir\\entries\\vids\\$name.mp4\" $url"));
+                Runtime.getRuntime().exec(String.format("yt-dlp -o \"$dir\\entries\\download\\$name.mp4\" $url"));
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))
@@ -36,6 +37,15 @@ class FileUtils {
 
             while (stdError.readLine() != null && (stdError.readLine().also { s = it }) != null) {
                 println(s)
+            }
+        }
+
+        fun CleanUp(name: String) {
+            val dir = System.getProperty("user.dir")
+            for (f in Files.list(Path("$dir\\entries\\vids\\"))) {
+                if (f.name.startsWith(name)) {
+                    Files.delete(f.toAbsolutePath())
+                }
             }
         }
     }
