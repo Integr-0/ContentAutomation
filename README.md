@@ -26,7 +26,7 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ## Getting started
 
-Clone this repo and create a virtual environment (or use your own Python 3.9).
+Clone this repo and create a virtual environment.
 Open the Main.kt file and edit the settings.
 ````kotlin
 val videos = 5 // Amount og videos to generate per run
