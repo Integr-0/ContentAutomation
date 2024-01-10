@@ -1,8 +1,9 @@
 import utils.*
 
 fun main(args: Array<String>) {
-    val videos = 5
-    val perVideo = 3
+    val videos = 1
+    val perVideo = 5
+    val backVid = "Parkour_Background.mp4"
 
     /*
         Optionally download a background Video
@@ -10,6 +11,7 @@ fun main(args: Array<String>) {
      */
 
     val v = Generator.genVideoData(videos, perVideo)
+    val dir = System.getProperty("user.dir")
 
     println()
 
@@ -19,13 +21,13 @@ fun main(args: Array<String>) {
         val name = vid.ttsFile.substringBefore(".mp3")
 
         FFMPEGUtils.edit(
-            "C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\download\\Parkour_Background.mp4",
-            "C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\vids\\${vid.ttsFile}",
+            "$dir\\entries\\download\\$backVid",
+            "$dir\\entries\\vids\\${vid.ttsFile}",
             name
         )
 
-        SubtitleGenerator.genSub("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\vids\\$name-cut.mp4")
-        FFMPEGUtils.addSubtitles("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
+        SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4")
+        FFMPEGUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
         FileUtils.cleanUp(name)
 
         println()

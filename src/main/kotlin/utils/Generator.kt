@@ -27,7 +27,7 @@ class Generator {
                 val jokes: MutableList<String> = mutableListOf()
                 for (it in (1..perVideo)) {
                     val joke = readAPI().filter { c -> c != '\n' && c != '"' }
-                    ttsText += "$joke "
+                    ttsText += " $joke "
                     jokes += joke
                 }
                 TTSGen.genTTS(ttsText, i, name)

@@ -14,7 +14,7 @@ class TTSGen {
                 .outputFormat(OutputFormat.audio_24khz_48kbitrate_mono_mp3)
                 .synthesisText(text)
                 .outputFileName("./entries/vids/${name}_$partNum")
-                .voice(VoiceEnum.en_US_RogerNeural)
+                .voice(VoiceEnum.en_US_EricNeural)
                 .build()
 
             ts.sendText(ssml)

@@ -20,7 +20,7 @@ def srt_create(filename: str):
         'Outline': '1',
         'Shadow': '2',
         'Blur': '21',
-        'Fontsize': 21,
+        'Fontsize': 2,
         'MarginL': '0',
         'MarginR': '0',
     }
