@@ -30,13 +30,18 @@ class FileUtils {
             val stdError = BufferedReader(InputStreamReader(p.errorStream))
 
             var s = ""
-            while (stdInput.readLine() != null && (stdInput.readLine().also { s = it }) != null) {
-                println(s)
+            try {
+                while (stdInput.readLine() != null && (stdInput.readLine().also { s = it }) != null) {
+                    if (s.startsWith("[download]")) println(s)
+                }
+
+                while (stdError.readLine() != null && (stdError.readLine().also { s = it }) != null) {
+                    if (s.startsWith("[download]")) println(s)
+                }
+            } catch (e: NullPointerException) {
+                // Do Nothing
             }
 
-            while (stdError.readLine() != null && (stdError.readLine().also { s = it }) != null) {
-                println(s)
-            }
         }
 
         fun cleanUp(name: String) {

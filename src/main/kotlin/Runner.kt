@@ -2,25 +2,21 @@ import utils.FFmpegUtils
 import utils.FileUtils
 import utils.Generator
 import utils.SubtitleGenerator
+import utils.obj.NotBuiltException
+import utils.obj.SettingsBuilder
 
 class Runner {
     companion object {
-        fun run(
-            videos: Int,
-            perVideo: Int,
-            outro: String,
-            series: String,
-            backVid: String,
-            continueOn: Int,
-            jokeSource: () -> String
-        ) {
+        fun run(settings: SettingsBuilder) {
+            if (!settings.isBuilt()) throw NotBuiltException("Given SettingsBuilder is not built!")
+
             val v = Generator.genVideoData(
-                videos,
-                perVideo,
-                outro,
-                series,
-                continueOn,
-                jokeSource
+                settings.videos!!,
+                settings.perVideo!!,
+                settings.outro!!,
+                settings.series!!,
+                settings.continueOn!!,
+                settings.contentSource!!
             )
 
             val dir = System.getProperty("user.dir")
@@ -29,12 +25,12 @@ class Runner {
             println()
 
             for (vid in v.contents) {
-                println("Generating Video: ${v.contents.indexOf(vid)+1}/$videos")
+                println("Generating Video: ${v.contents.indexOf(vid)+1}/${settings.videos!!}")
 
                 val name = vid.ttsFile.substringBefore(".mp3")
 
                 FFmpegUtils.edit(
-                    "$dir\\entries\\download\\$backVid",
+                    "$dir\\entries\\download\\${randomBackVid(settings.backVids!!)}.mp4",
                     "$dir\\entries\\vids\\${vid.ttsFile}",
                     name
                 )
@@ -44,11 +40,16 @@ class Runner {
                 FileUtils.cleanUp(name)
 
                 println()
-                println(" => Outputted ${v.contents.indexOf(vid) + 1}/$videos after ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds as: $name-final.mp4")
+                println(" => Outputted ${v.contents.indexOf(vid) + 1}/${settings.videos!!} after ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds as: $name-final.mp4")
                 println()
             }
 
-            println("==> Finished Generation of $videos Video/s in ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds <==")
+            println("==> Finished Generation of ${settings.videos!!} Video/s in ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds <==")
         }
+
+        private fun randomBackVid(vids: List<String>) = vids.random()
+
     }
+
+
 }

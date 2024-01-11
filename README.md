@@ -26,15 +26,31 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ## Getting started
 
+### Configuring the Runner and running it
+
 Clone this repo and create a virtual environment.
 Open the Main.kt file and edit the settings.
+
 ````kotlin
-val videos = 5
-val perVideo = 5
-val outro = "Follow us for more!"
-val series = "Jokes"
-val backVid = "Parkour_Background.mp4"
-val continueOn = 1
-val contentSource = { Generator.readJokeAPI() }
+val settings = SettingsBuilder()
+    .videoAmount(5)
+    .perVideo(5)
+    .outro("Follow us for more!")
+    .series("Jokes")
+    .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
+    .continueOn(1)
+    .contentSource { Generator.readJokeAPI() }
+    .build()
 ````
+
 Run the ``main()`` method (via Gradle)
+
+### Downloading external content
+
+````kotlin
+FileUtils.downloadYT("https://www.youtube.com/watch?v=Pt5_GSKIWQM", "Hypixel_Parkour")
+FileUtils.downloadYT("https://www.youtube.com/watch?v=2VpG0WS4uCo", "Spiral_Parkour")
+FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")
+````
+
+These are 3 examples of downloading a YouTube video and saving is under a name.

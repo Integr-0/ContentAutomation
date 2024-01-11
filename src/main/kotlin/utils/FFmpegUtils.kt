@@ -8,8 +8,8 @@ import net.bramp.ffmpeg.builder.FFmpegBuilder
 
 class FFmpegUtils {
     companion object {
-        val ffmpeg = FFmpeg("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
-        val ffprobe = FFprobe("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
+        private val ffmpeg = FFmpeg("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
+        private val ffprobe = FFprobe("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
 
         fun edit(inputVid: String, inputSub: String, name: String) {
             val dir = System.getProperty("user.dir")
@@ -21,6 +21,7 @@ class FFmpegUtils {
                 .overrideOutputFiles(true)
                 .addOutput("$dir\\entries\\vids\\$name-cut.mp4")
                 .addExtraArgs("-vf", "crop=ih*(9/16):ih")
+                .addExtraArgs("-crf", "23")
                 .addExtraArgs("-map", "0:v")
                 .addExtraArgs("-map", "1:a")
                 .addExtraArgs("-shortest")
