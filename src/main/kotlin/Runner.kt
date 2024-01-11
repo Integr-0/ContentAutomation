@@ -6,6 +6,7 @@ import utils.Generator
 import utils.SubtitleGenerator
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
+import kotlin.random.Random
 
 class Runner {
     companion object {
@@ -52,7 +53,7 @@ class Runner {
             println("==> Finished Generation of ${settings.videos!!} Video/s in ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds <==")
         }
 
-        private fun randomBackVid(vids: List<String>) = vids.random()
+        private fun randomBackVid(vids: List<String>) = vids.random(Random(System.currentTimeMillis()))
 
     }
 
