@@ -1,5 +1,22 @@
-
 <img alt="YT_TRANS.png" height="200" src="YT_TRANS.png" width="200"/>
+
+# Content Automation
+
+## Table of Contents
+<!-- TOC -->
+* [Content Automation](#content-automation)
+  * [Table of Contents](#table-of-contents)
+  * [About](#about)
+    * [Project](#project)
+    * [Me](#me)
+  * [Requirements](#requirements)
+    * [External](#external)
+    * [Python-Lib](#python-lib)
+  * [Getting started](#getting-started)
+    * [Setting up the virtual environment](#setting-up-the-virtual-environment)
+    * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
+    * [Downloading external content](#downloading-external-content)
+<!-- TOC -->
 
 ## About
 
@@ -16,6 +33,9 @@ I'm a student from Austria. I like to code random projects like this in my free 
 ## Requirements
 
 ### External
+
+> [!INFO]
+> There is an installation of FFMPEG via WinGet, although I couldn't get it to work.
 
 - [PYTHON 3.9](https://www.python.org/downloads/release/python-390/)
 - [FFMPEG](https://ffmpeg.org/) (Chocolatey -> ```choco install ffmpeg-full```)
@@ -34,6 +54,9 @@ I'm a student from Austria. I like to code random projects like this in my free 
 Create a new Python venv and get the path to the "python.exe" it uses. Add it in the .venvPath() without the .exe
 
 ### Configuring the Runner and running it
+
+> [!CAUTION]
+> Make sure you have all tools installed, and u have the correct paths
 
 Clone this repo and create a virtual environment.
 Open the Main.kt file and edit the settings.
@@ -64,3 +87,23 @@ FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Park
 ````
 
 These are 3 examples of downloading a YouTube video and saving is under a name.
+
+### Grabbing the finished product
+
+The output directory of the bot is: ````./entries/saves````
+Outputs are in the following format: 
+````
+<day>-<month>-<year>-<second>-<minute>-<hour>_<video_group_index>-final.mp4
+````
+For example:
+````
+5-2-2024-16-22-8_2-final.mp4
+````
+This means that:
+- Day: 5th
+- Month: 2nd
+- Year: 2024
+- Second: 16
+- Minute: 22
+- Hour: 8
+- Index of Group: 2
