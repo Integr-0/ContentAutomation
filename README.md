@@ -29,8 +29,12 @@ I'm a student from Austria. I like to code random projects like this in my free 
 Clone this repo and create a virtual environment.
 Open the Main.kt file and edit the settings.
 ````kotlin
-val videos = 5 // Amount og videos to generate per run
-val perVideo = 3 // Amount of jokes to package into one video
-val backVid = "Parkour_Background.mp4" // Filename of the background video (Origin in "./entries/download")
+val videos = 5
+val perVideo = 5
+val outro = "Follow us for more!"
+val series = "Jokes"
+val backVid = "Parkour_Background.mp4"
+val continueOn = 1
+val contentSource = { Generator.readJokeAPI() }
 ````
 Run the ``main()`` method (via Gradle)

@@ -1,41 +1,18 @@
 import utils.*
-import java.time.LocalTime
 
 fun main(args: Array<String>) {
-    val videos = 5
+    /* Settings */
+    val videos = 1
     val perVideo = 5
+    val outro = "Follow us for more!"
+    val series = "Jokes"
     val backVid = "Parkour_Background.mp4"
+    val continueOn = 1
+    val contentSource = { Generator.readJokeAPI() }
 
-    /*
-        Optionally download a background Video
-        FileUtils.downloadYT("https://www.youtube.com/watch?v=intRX7BRA90", "Parkour_Background")
-     */
+    /* Optionally download a background Video */
+    //FileUtils.downloadYT("<Video>", "<Name>")
 
-    val v = Generator.genVideoData(videos, perVideo)
-    val dir = System.getProperty("user.dir")
-    val startTime = System.currentTimeMillis()
-
-    println()
-
-    for (vid in v.contents) {
-        println("Generating Video: ${v.contents.indexOf(vid)+1}/$videos")
-
-        val name = vid.ttsFile.substringBefore(".mp3")
-
-        FFmpegUtils.edit(
-            "$dir\\entries\\download\\$backVid",
-            "$dir\\entries\\vids\\${vid.ttsFile}",
-            name
-        )
-
-        SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4")
-        FFmpegUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
-        FileUtils.cleanUp(name)
-
-        println()
-        println(" => Outputted ${v.contents.indexOf(vid) + 1}/$videos after ${(System.currentTimeMillis()-startTime)*0.001} Seconds as: $name-final.mp4")
-        println()
-    }
-
-    println("==> Finished Generation of $videos Video/s in ${(System.currentTimeMillis()-startTime)*0.001} Seconds <==")
+    /* Run the Generator */
+    Runner.run(videos, perVideo, outro, series, backVid, continueOn, contentSource)
 }
