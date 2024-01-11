@@ -1,4 +1,5 @@
 import utils.*
+import java.time.LocalTime
 
 fun main(args: Array<String>) {
     val videos = 5
@@ -12,6 +13,7 @@ fun main(args: Array<String>) {
 
     val v = Generator.genVideoData(videos, perVideo)
     val dir = System.getProperty("user.dir")
+    val startTime = System.currentTimeMillis()
 
     println()
 
@@ -31,7 +33,9 @@ fun main(args: Array<String>) {
         FileUtils.cleanUp(name)
 
         println()
-        println(" => Outputted ${v.contents.indexOf(vid) + 1}/$videos as: $name-final.mp4")
+        println(" => Outputted ${v.contents.indexOf(vid) + 1}/$videos after ${(System.currentTimeMillis()-startTime)*0.001} Seconds as: $name-final.mp4")
         println()
     }
+
+    println("==> Finished Generation of $videos Video/s in ${(System.currentTimeMillis()-startTime)*0.001} Seconds <==")
 }

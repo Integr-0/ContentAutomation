@@ -53,16 +53,19 @@ class Generator {
 
             for (i in (1..amount)) {
                 var ttsText = ""
+                println("|| Generating Content: $i/$amount")
 
                 val jokes: MutableList<String> = mutableListOf()
                 for (it in (1..perVideo)) {
+                    println("  || Reading API: $it/$perVideo")
+
                     val joke = readAPI().filter { c -> c != '\n' && c != '"' }
                     ttsText += "$joke "
                     jokes += joke
                 }
 
                 ttsText += " $outro"
-                println("|| Generating TTS: $i/$amount")
+                println("  || Generating TTS")
                 TTSGen.genTTS(ttsText, i, name)
                 videos += VideoObject("Jokes Part $i", "Jokes", jokes, outro, name+"_"+i+".mp3")
             }
