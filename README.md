@@ -16,6 +16,7 @@
     * [Setting up the virtual environment](#setting-up-the-virtual-environment)
     * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
     * [Downloading external content](#downloading-external-content)
+    * [Grabbing the finished product](#grabbing-the-finished-product)
 <!-- TOC -->
 
 ## About
@@ -51,7 +52,10 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ### Setting up the virtual environment
 
-Create a new Python venv and get the path to the "python.exe" it uses. Add it in the .venvPath() without the .exe
+> [!CAUTION]
+> Python 3.9.0 is Required
+
+Create a new Python venv (or use your own Python) and get the path to the "python.exe" it uses. Add it in the .venvPath()
 
 ### Configuring the Runner and running it
 

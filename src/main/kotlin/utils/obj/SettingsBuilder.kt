@@ -44,7 +44,7 @@ class SettingsBuilder {
     }
 
     fun venvPath(path: String): SettingsBuilder {
-        this.venvPath = path
+        this.venvPath = path.substringBefore(".exe")
         return this
     }
 
