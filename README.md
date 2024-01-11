@@ -113,6 +113,9 @@ This means that:
 - Index of Group: 2
 
 ## Dependencies
+
+### Kotlin
+
 - [OkHTTP](https://github.com/square/okhttp)
   - Apache License, Version 2.0
 - [Gson](https://github.com/google/gson)
@@ -120,7 +123,17 @@ This means that:
 - [Javafaker](https://github.com/HannnnXiao/javafaker)
   - Apache License, Version 2.0
 - [Java-TTS](https://github.com/ikfly/java-tts)
+  - None
 - [Ffmpeg wrapper](https://github.com/bramp/ffmpeg-cli-wrapper)
   - BSD 2-Clause "Simplified" License
 - [Slf4j](https://www.slf4j.org/)
   - MIT License 
+
+### Python
+
+- [PyTorch](https://pytorch.org/)
+  - [Special](https://github.com/pytorch/pytorch/blob/main/LICENSE)
+- [OpenAI-Whisper](https://github.com/openai/whisper)
+  - MIT License
+- [YT-DLP](https://github.com/yt-dlp/yt-dlp)
+  - The Unlicense
