@@ -111,3 +111,16 @@ This means that:
 - Minute: 22
 - Hour: 8
 - Index of Group: 2
+
+## Dependencies
+- [OkHTTP](https://github.com/square/okhttp)
+  - Apache License, Version 2.0
+- [Gson](https://github.com/google/gson)
+  - Apache License, Version 2.0
+- [Javafaker](https://github.com/HannnnXiao/javafaker)
+  - Apache License, Version 2.0
+- [Java-TTS](https://github.com/ikfly/java-tts)
+- [Ffmpeg wrapper](https://github.com/bramp/ffmpeg-cli-wrapper)
+  - BSD 2-Clause "Simplified" License
+- [Slf4j](https://www.slf4j.org/)
+  - MIT License 
