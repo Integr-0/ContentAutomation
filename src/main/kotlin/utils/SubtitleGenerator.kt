@@ -6,7 +6,7 @@ import java.io.InputStreamReader
 
 class SubtitleGenerator {
     companion object {
-        fun genSub(filename: String) {
+        fun genSub(filename: String, venvPath: String) {
             val dir = System.getProperty("user.dir")
 
             println("|| Generating subtitle .ass file")

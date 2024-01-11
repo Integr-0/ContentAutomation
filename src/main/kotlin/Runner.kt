@@ -1,3 +1,5 @@
+import net.bramp.ffmpeg.FFmpeg
+import net.bramp.ffmpeg.FFprobe
 import utils.FFmpegUtils
 import utils.FileUtils
 import utils.Generator
@@ -19,6 +21,9 @@ class Runner {
                 settings.contentSource!!
             )
 
+            FFmpegUtils.ffmpeg = FFmpeg(settings.ffmpegPath!!)
+            FFmpegUtils.ffprobe = FFprobe(settings.probePath!!)
+
             val dir = System.getProperty("user.dir")
             val startTime = System.currentTimeMillis()
 
@@ -35,7 +40,7 @@ class Runner {
                     name
                 )
 
-                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4")
+                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!)
                 FFmpegUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
                 FileUtils.cleanUp(name)
 
