@@ -1,7 +1,7 @@
 import utils.*
 
 fun main(args: Array<String>) {
-    val videos = 1
+    val videos = 5
     val perVideo = 5
     val backVid = "Parkour_Background.mp4"
 

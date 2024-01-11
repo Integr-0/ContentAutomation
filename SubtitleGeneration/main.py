@@ -20,7 +20,7 @@ def srt_create(filename: str):
         'Outline': '1',
         'Shadow': '2',
         'Blur': '21',
-        'Fontsize': 2,
+        'Fontsize': 13,
         'MarginL': '0',
         'MarginR': '0',
     }
@@ -36,6 +36,7 @@ def srt_create(filename: str):
     transcribe.to_ass(
         str(absolute_ass_path),
         word_level=True,
+        font_size=13,
         highlight_color="05f030",
         **word_dict
     )
