@@ -34,7 +34,7 @@ I'm a student from Austria. I like to code random projects like this in my free 
 
 ### External
 
-> [!INFO]
+> [!NOTE]
 > There is an installation of FFMPEG via WinGet, although I couldn't get it to work.
 
 - [PYTHON 3.9](https://www.python.org/downloads/release/python-390/)
