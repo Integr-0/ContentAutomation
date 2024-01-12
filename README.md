@@ -17,6 +17,10 @@
     * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
     * [Downloading external content](#downloading-external-content)
     * [Grabbing the finished product](#grabbing-the-finished-product)
+  * [Dependencies](#dependencies)
+    * [Kotlin](#kotlin)
+    * [Python](#python)
+    * [External](#external-1)
 <!-- TOC -->
 
 ## About
@@ -47,6 +51,7 @@ I'm a student from Austria. I like to code random projects like this in my free 
 - stable-ts (pip -> ```pip install stable-ts```)
 - openai-whisper (pip -> ```pip install openai-whisper```)
 - torch (pip -> ```pip install torch```)
+- tiktok-uploader (pip -> ```pip install tiktok-uploader```)
 
 ## Getting started
 
@@ -62,8 +67,7 @@ Create a new Python venv (or use your own Python) and get the path to the "pytho
 > [!CAUTION]
 > Make sure you have all tools installed, and u have the correct paths
 
-Clone this repo and create a virtual environment.
-Open the Main.kt file and edit the settings.
+Clone this repo and open the Main.kt file and edit the settings.
 
 ````kotlin
 val settings = SettingsBuilder()
@@ -112,6 +116,9 @@ This means that:
 - Hour: 8
 - Index of Group: 2
 
+### Getting ```cookies.txt``` file for the Bot
+More Info Here: [Click ME](https://github.com/kairi003/Get-cookies.txt-LOCALLY)
+
 ## Dependencies
 
 ### Kotlin
@@ -135,5 +142,14 @@ This means that:
   - [Special](https://github.com/pytorch/pytorch/blob/main/LICENSE)
 - [OpenAI-Whisper](https://github.com/openai/whisper)
   - MIT License
+- [tiktik-uploader](https://github.com/wkaisertexas/tiktok-uploader)
+  - [Special](https://github.com/wkaisertexas/tiktok-uploader/blob/main/LISCENSE)
+
+### External
+
+- [PYTHON 3.9](https://www.python.org/downloads/release/python-390/)
+  - [Special](https://docs.python.org/3/license.html)
+- [FFMPEG](https://ffmpeg.org/)
+  - GNU Lesser General Public License (LGPL) version 2.1
 - [YT-DLP](https://github.com/yt-dlp/yt-dlp)
   - The Unlicense

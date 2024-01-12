@@ -19,32 +19,41 @@ class SettingsBuilder {
     var ffmpegPath: String? = null
     var probePath: String? = null
 
+    var cookiePath: String? = null
+    var aalTags: List<String>? = null
+
     private var isBuilt = false;
 
     fun videoAmount(videos: Int): SettingsBuilder {
         this.videos = videos
         return this
     }
+
     fun perVideo(perVideo: Int): SettingsBuilder {
         this.perVideo = perVideo
         return this
     }
+
     fun outro(outro: String): SettingsBuilder {
         this.outro = outro
         return this
     }
+
     fun series(series: String): SettingsBuilder {
         this.series = series
         return this
     }
+
     fun backVids(backVids: List<String>): SettingsBuilder {
         this.backVids = backVids
         return this
     }
+
     fun continueOn(continueOn: Int): SettingsBuilder {
         this.continueOn = continueOn
         return this
     }
+
     fun contentSource(contentSource: (Int) -> String): SettingsBuilder {
         this.contentSource = contentSource
         return this
@@ -62,6 +71,12 @@ class SettingsBuilder {
 
     fun probePath(path: String): SettingsBuilder {
         this.probePath = path
+        return this
+    }
+
+    fun autoUpload(cookiePath: String, tags: List<String>): SettingsBuilder {
+        this.cookiePath = cookiePath
+        this.aalTags = tags
         return this
     }
 

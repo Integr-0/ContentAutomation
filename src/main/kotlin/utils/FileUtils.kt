@@ -17,12 +17,7 @@ class FileUtils {
     companion object {
         fun dump(json: String, name: String) {
             Files.createDirectories(Path("./entries/saves/"))
-            Files.write(
-                Path(
-                    "./entries/saves/$name.json"
-                ),
-                json.toByteArray()
-            )
+            Files.write(Path("./entries/saves/$name.json"), json.toByteArray())
         }
 
         fun downloadYT(url: String, name: String) {

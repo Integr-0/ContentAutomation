@@ -30,13 +30,14 @@ class Generator {
 
             var pn = firstPartNum
 
-            val name =
-                (LocalDate.now().dayOfMonth.toString()
-                        + "-" + LocalDate.now().monthValue.toString()
-                        + "-" + LocalDate.now().year.toString()
-                        + "-" + LocalTime.now().second.toString()
-                        + "-" + LocalTime.now().minute.toString()
-                        + "-" + LocalTime.now().hour.toString())
+            val name = (
+                LocalDate.now().dayOfMonth.toString()
+                + "-" + LocalDate.now().monthValue.toString()
+                + "-" + LocalDate.now().year.toString()
+                + "-" + LocalTime.now().second.toString()
+                + "-" + LocalTime.now().minute.toString()
+                + "-" + LocalTime.now().hour.toString()
+            )
 
             val videos: MutableList<VideoObject> = mutableListOf()
 
@@ -55,7 +56,7 @@ class Generator {
                 ttsText += " $outro"
                 println("|| Generating TTS: $i/$amount")
                 TTSGen.genTTS(ttsText, i, name)
-                videos += VideoObject("$series Part $pn", series, contents, outro, name+"_"+i+".mp3")
+                videos += VideoObject("$series Part $pn", series, contents, outro, name + "_" + i + ".mp3")
                 pn++
             }
 
@@ -83,7 +84,7 @@ class Generator {
             val posts = RedditGetter.getPosts(URL("$url.json"), postIndex, currentIndex)
 
             return if (currentIndex == 1) posts[postIndex].question
-            else posts[postIndex].responses[currentIndex]+"."
+            else posts[postIndex].responses[currentIndex] + "."
         }
     }
 }

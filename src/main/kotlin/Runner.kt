@@ -1,10 +1,7 @@
 import com.github.javafaker.Faker
 import net.bramp.ffmpeg.FFmpeg
 import net.bramp.ffmpeg.FFprobe
-import utils.FFmpegUtils
-import utils.FileUtils
-import utils.Generator
-import utils.SubtitleGenerator
+import utils.*
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
 import kotlin.random.Random
@@ -56,6 +53,13 @@ class Runner {
                 )
                 FileUtils.cleanUp(name)
 
+                if (settings.cookiePath != null) {
+                    //TODO: Cookies for TikTok were set -> Upload
+                    //TODO: Potentially AUTO-UPLOAD Here
+
+                    // TODO DISABLED: TikTokUploader.upload("$dir\\entries\\saves\\$name-final.mp4", settings.venvPath!!, settings.aalTags!!.joinToString(" "), settings.cookiePath!!)
+                }
+
                 println()
                 println(
                     " => Outputted ${v.contents.indexOf(vid) + 1}/${settings.videos!!} after ${
@@ -78,7 +82,7 @@ class Runner {
             )
         }
 
-        private fun randomBackVid(vids: List<String>) = vids[Faker.instance().number().numberBetween(0, vids.size-1)]
+        private fun randomBackVid(vids: List<String>) = vids[Faker.instance().number().numberBetween(0, vids.size - 1)]
 
     }
 
