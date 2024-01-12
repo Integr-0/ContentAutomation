@@ -1,9 +1,12 @@
+import net.bramp.ffmpeg.FFmpeg
+import net.bramp.ffmpeg.FFprobe
 import utils.FFmpegUtils
 import utils.FileUtils
 import utils.Generator
 import utils.SubtitleGenerator
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
+import kotlin.random.Random
 
 class Runner {
     companion object {
@@ -18,6 +21,9 @@ class Runner {
                 settings.continueOn!!,
                 settings.contentSource!!
             )
+
+            FFmpegUtils.ffmpeg = FFmpeg(settings.ffmpegPath!!)
+            FFmpegUtils.ffprobe = FFprobe(settings.probePath!!)
 
             val dir = System.getProperty("user.dir")
             val startTime = System.currentTimeMillis()
@@ -35,7 +41,7 @@ class Runner {
                     name
                 )
 
-                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4")
+                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!)
                 FFmpegUtils.addSubtitles("$dir\\entries\\vids\\$name-cut.mp4", FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"), "$name-final")
                 FileUtils.cleanUp(name)
 
@@ -47,7 +53,7 @@ class Runner {
             println("==> Finished Generation of ${settings.videos!!} Video/s in ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds <==")
         }
 
-        private fun randomBackVid(vids: List<String>) = vids.random()
+        private fun randomBackVid(vids: List<String>) = vids.random(Random(System.currentTimeMillis()))
 
     }
 

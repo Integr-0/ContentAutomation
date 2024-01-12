@@ -8,16 +8,16 @@ import net.bramp.ffmpeg.builder.FFmpegBuilder
 
 class FFmpegUtils {
     companion object {
-        private val ffmpeg = FFmpeg("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
-        private val ffprobe = FFprobe("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
+        var ffmpeg: FFmpeg? = null
+        var ffprobe: FFprobe? = null
 
         fun edit(inputVid: String, inputSub: String, name: String) {
             val dir = System.getProperty("user.dir")
 
             println("|| Cutting video to length")
             val builder = FFmpegBuilder()
-                .addInput(ffprobe.probe(inputVid))
-                .addInput(ffprobe.probe(inputSub))
+                .addInput(ffprobe!!.probe(inputVid))
+                .addInput(ffprobe!!.probe(inputSub))
                 .overrideOutputFiles(true)
                 .addOutput("$dir\\entries\\vids\\$name-cut.mp4")
                 .addExtraArgs("-vf", "crop=ih*(9/16):ih")
@@ -37,7 +37,7 @@ class FFmpegUtils {
 
             println("|| Adding subtitle .ass file to video")
             val builder = FFmpegBuilder()
-                .addInput(ffprobe.probe(inputVid))
+                .addInput(ffprobe!!.probe(inputVid))
                 .overrideOutputFiles(true)
                 .addOutput("$dir\\entries\\saves\\$outPutName.mp4")
                 .addExtraArgs("-vf", "ass=$inputSub")

@@ -57,8 +57,8 @@ class Generator {
 
                 val contents: MutableList<String> = mutableListOf()
                 for (it in (1..perVideo)) {
-                    val obj = genFun().filter { c -> c != '\n' && c != '"' }
-                    ttsText += "$obj "
+                    val obj = genFun()
+                    ttsText += " $obj "
                     contents += obj
                 }
 
