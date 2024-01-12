@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker
 import net.bramp.ffmpeg.FFmpeg
 import net.bramp.ffmpeg.FFprobe
 import utils.FFmpegUtils
@@ -8,6 +9,12 @@ import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
 import kotlin.random.Random
 
+/**
+ * **Author: Integr**
+ * - **What:** Runs the bot
+ * - **How:** Combining all things
+ * - **Why:** To make the bot work
+ */
 class Runner {
     companion object {
         fun run(settings: SettingsBuilder) {
@@ -53,7 +60,7 @@ class Runner {
             println("==> Finished Generation of ${settings.videos!!} Video/s in ${String.format("%.1f", (System.currentTimeMillis()-startTime)*0.001)} Seconds <==")
         }
 
-        private fun randomBackVid(vids: List<String>) = vids.random(Random(System.currentTimeMillis()))
+        private fun randomBackVid(vids: List<String>) = vids[Faker.instance().number().numberBetween(0, vids.size-1)]
 
     }
 

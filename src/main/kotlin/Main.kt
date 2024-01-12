@@ -4,13 +4,19 @@ import utils.obj.SettingsBuilder
 fun main(args: Array<String>) {
     /* Settings */
     val settings = SettingsBuilder()
-        .videoAmount(2)
+        .videoAmount(1)
         .perVideo(5)
         .outro("Follow us for more!")
-        .series("Jokes")
+        .series("Reddit")
         .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
         .continueOn(1)
-        .contentSource { Generator.readJokeAPI() }
+        .contentSource {
+            Generator.readRedditAPI(
+                it,
+                "https://www.reddit.com/r/askreddit",
+                4
+            )
+        }
         .venvPath("C:\\users\\erikr\\Desktop\\Misc\\JokeAPI\\venv\\Scripts\\python.exe")
         .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
         .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")

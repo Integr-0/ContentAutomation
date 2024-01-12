@@ -7,6 +7,12 @@ import kotlin.io.path.Path
 import kotlin.io.path.name
 
 
+/**
+ * **Author: Integr**
+ * - **What:** handles Files
+ * - **How:** yt-dlp and File utilities
+ * - **Why:** To download videos and store things
+ */
 class FileUtils {
     companion object {
         fun dump(json: String, name: String) {

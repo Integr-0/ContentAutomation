@@ -3,40 +3,28 @@ package utils
 import com.github.javafaker.Faker
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
+import utils.obj.RedditGetter
 import utils.obj.VideoContainer
 import utils.obj.VideoObject
+import java.net.URL
 import java.time.LocalDate
 import java.time.LocalTime
 
+/**
+ * **Author: Integr**
+ * - **What:** Generates video data
+ * - **How:** APIs and user settings
+ * - **Why:** Essential to generate TTS, video and content
+ */
 class Generator {
     companion object {
-        fun genVideoDataJson(
-            amount: Int,
-            perVideo: Int,
-            outro: String,
-            series: String,
-            firstPartNum: Int,
-            genFun: () -> String
-        ): Pair<String, String> {
-            val name = (
-                LocalDate.now().dayOfMonth.toString()
-                + "-" + LocalDate.now().monthValue.toString()
-                + "-" + LocalDate.now().year.toString()
-                + "-" + LocalTime.now().second.toString()
-                + "-" + LocalTime.now().minute.toString()
-                + "-" + LocalTime.now().hour.toString()
-            )
-
-            return Pair(genVideoData(amount,perVideo, outro, series, firstPartNum, genFun).toJson(), name)
-        }
-
         fun genVideoData(
             amount: Int,
             perVideo: Int,
             outro: String,
             series: String,
             firstPartNum: Int,
-            genFun: () -> String
+            genFun: (Int) -> String
         ): VideoContainer {
             println("Generating video content")
 
@@ -56,8 +44,10 @@ class Generator {
                 var ttsText = ""
 
                 val contents: MutableList<String> = mutableListOf()
+                println("|| Reading API: $i/$amount")
                 for (it in (1..perVideo)) {
-                    val obj = genFun()
+                    val obj = genFun(it)
+                    println(obj)
                     ttsText += " $obj "
                     contents += obj
                 }
@@ -87,6 +77,13 @@ class Generator {
 
         fun readChuckNorisAPI(): String {
             return Faker.instance().chuckNorris().fact()
+        }
+
+        fun readRedditAPI(currentIndex: Int, url: String, postIndex: Int): String {
+            val posts = RedditGetter.getPosts(URL("$url.json"), postIndex, currentIndex)
+
+            return if (currentIndex == 1) posts[postIndex].question
+            else posts[postIndex].responses[currentIndex]+"."
         }
     }
 }

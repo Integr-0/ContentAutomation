@@ -4,6 +4,12 @@ import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader
 
+/**
+ * **Author: Integr**
+ * - **What:** Generates subtitles to the given .mp3 file
+ * - **How:** Using a python script with openai-whisper
+ * - **Why:** To generate subtitles from TTS
+ */
 class SubtitleGenerator {
     companion object {
         fun genSub(filename: String, venvPath: String) {
@@ -11,7 +17,7 @@ class SubtitleGenerator {
 
             println("|| Generating subtitle .ass file")
             val p: Process =
-                Runtime.getRuntime().exec(String.format("$dir\\venv\\Scripts\\python $dir\\SubtitleGeneration\\main.py $filename"));
+                Runtime.getRuntime().exec(String.format("$venvPath $dir\\SubtitleGeneration\\main.py $filename"));
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))

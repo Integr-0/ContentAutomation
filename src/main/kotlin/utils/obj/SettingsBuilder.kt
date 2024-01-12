@@ -1,5 +1,12 @@
 package utils.obj
 
+/**
+ * **Author: Integr**
+ * - **What:** Settings for the Runner
+ * - **How:** Using the builder functions to set Values
+ * - **Why:** To make configuring the bot easier
+ */
+
 class SettingsBuilder {
     var videos: Int? = null
     var perVideo: Int? = null
@@ -7,7 +14,7 @@ class SettingsBuilder {
     var series: String? = null
     var backVids: List<String>? = null
     var continueOn: Int? = null
-    var contentSource: (() -> String)? = null
+    var contentSource: ((Int) -> String)? = null
     var venvPath: String? = null
     var ffmpegPath: String? = null
     var probePath: String? = null
@@ -38,7 +45,7 @@ class SettingsBuilder {
         this.continueOn = continueOn
         return this
     }
-    fun contentSource(contentSource: () -> String): SettingsBuilder {
+    fun contentSource(contentSource: (Int) -> String): SettingsBuilder {
         this.contentSource = contentSource
         return this
     }
@@ -77,4 +84,10 @@ class SettingsBuilder {
     fun isBuilt() = isBuilt
 }
 
+/**
+ * **Author: Integr**
+ * - **What:** Exception that the SettingsBuilder is not Built
+ * - **How:** gets thrown when a Value is Null
+ * - **Why:** Debugging
+ */
 class NotBuiltException(message: String?) : Exception(message)

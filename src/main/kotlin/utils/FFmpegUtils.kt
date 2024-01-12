@@ -6,6 +6,12 @@ import net.bramp.ffmpeg.FFprobe
 import net.bramp.ffmpeg.builder.FFmpegBuilder
 
 
+/**
+ * **Author: Integr**
+ * - **What:** Handles FFmpeg functions
+ * - **How:** using ffmpeg
+ * - **Why:** Essential for cutting videos
+ */
 class FFmpegUtils {
     companion object {
         var ffmpeg: FFmpeg? = null

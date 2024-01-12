@@ -6,6 +6,12 @@ import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import kotlin.reflect.typeOf
 
+/**
+ * **Author: Integr**
+ * - **What:** Video data
+ * - **How:** Using the args
+ * - **Why:** Essential function of the bot
+ */
 data class VideoObject(
     var title: String = "",
     var series: String = "",

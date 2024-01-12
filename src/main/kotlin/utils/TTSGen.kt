@@ -6,6 +6,12 @@ import io.ikfly.model.SSML
 import io.ikfly.service.TTSService
 
 
+/**
+ * **Author: Integr**
+ * - **What:** Generating TTS .mp3 files
+ * - **How:** Using the edge-tts module
+ * - **Why:** Essential to use the bot
+ */
 class TTSGen {
     companion object {
         fun genTTS(text: String, partNum: Int, name: String) {
