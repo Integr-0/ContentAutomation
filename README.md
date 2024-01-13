@@ -17,7 +17,6 @@
     * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
     * [Downloading external content](#downloading-external-content)
     * [Grabbing the finished product](#grabbing-the-finished-product)
-    * [Getting ```cookies.txt``` file for the Bot](#getting-cookiestxt-file-for-the-bot)
   * [Dependencies](#dependencies)
     * [Kotlin](#kotlin)
     * [Python](#python)
@@ -87,6 +86,7 @@ val settings = SettingsBuilder()
       2
     )
   }
+  .randomColor()
   .autoUpload("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\credentials.txt", listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"))
   .build()
 
@@ -124,10 +124,6 @@ This means that:
 - Hour: 8
 - Index of Group: 2
 
-### Making ```credentials.txt``` file for the Bot
-First line: Password
-Second line: Email
-
 ## Dependencies
 
 ### Kotlin
@@ -143,9 +139,7 @@ Second line: Email
 - [Ffmpeg wrapper](https://github.com/bramp/ffmpeg-cli-wrapper)
   - BSD 2-Clause "Simplified" License
 - [Slf4j](https://www.slf4j.org/)
-  - MIT License 
-- [Selenium](https://www.selenium.dev/)
-  - Apache License, Version 2.0
+  - MIT License
 
 ### Python
 

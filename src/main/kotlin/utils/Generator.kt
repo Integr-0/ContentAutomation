@@ -62,7 +62,7 @@ class Generator {
             return VideoContainer(videos)
         }
 
-        fun readJokeAPI(): String {
+        fun readProgrammerJokeAPI(): String {
             val client = OkHttpClient()
 
             val request = Request.Builder()
@@ -75,7 +75,7 @@ class Generator {
             return response.body().string()
         }
 
-        fun readChuckNorisAPI(): String {
+        fun readChuckNorisQuoteAPI(): String {
             return Faker.instance().chuckNorris().fact()
         }
 
@@ -84,6 +84,32 @@ class Generator {
 
             return if (currentIndex == 1) posts[postIndex].question
             else posts[postIndex].responses[currentIndex] + "."
+        }
+
+        fun readJokeAPI(): String {
+            val client = OkHttpClient()
+
+            val request = Request.Builder()
+                .url("https://v2.jokeapi.dev/joke/Miscellaneous,Dark,Pun,Spooky,Christmas?blacklistFlags=nsfw,racist,sexist&format=txt&type=single")
+                .get()
+                .build()
+
+            val response = client.newCall(request).execute()
+
+            return response.body().string()
+        }
+
+        fun readDarkJokeAPI(): String {
+            val client = OkHttpClient()
+
+            val request = Request.Builder()
+                .url("https://v2.jokeapi.dev/joke/Dark?blacklistFlags=nsfw,racist,sexist&format=txt&type=single")
+                .get()
+                .build()
+
+            val response = client.newCall(request).execute()
+
+            return response.body().string()
         }
     }
 }

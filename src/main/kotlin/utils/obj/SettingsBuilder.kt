@@ -13,16 +13,12 @@ class SettingsBuilder {
     var outro: String? = null
     var series: String? = null
     var backVids: List<String>? = null
-    var continueOn: Int? = null
+    var continueOn: Int? = 1
     var contentSource: ((Int) -> String)? = null
     var venvPath: String? = null
     var ffmpegPath: String? = null
     var probePath: String? = null
-
-    var aalTags: List<String>? = null
-    var cred: String? = null
-
-
+    var rcol: Boolean? = false
     private var isBuilt = false;
 
     fun videoAmount(videos: Int): SettingsBuilder {
@@ -75,9 +71,8 @@ class SettingsBuilder {
         return this
     }
 
-    fun autoUploadTikTok(tags: List<String>, credFile: String): SettingsBuilder {
-        this.aalTags = tags
-        this.cred = credFile
+    fun randomColor(): SettingsBuilder {
+        this.rcol = true
         return this
     }
 
@@ -89,7 +84,6 @@ class SettingsBuilder {
         if (outro == null) throw NullPointerException("No outro given! - Use .outro() to set it!")
         if (series == null) throw NullPointerException("No series given! - Use .series() to set it!")
         if (backVids == null) throw NullPointerException("No background videos count given! - Use .backVids() to set it!")
-        if (continueOn == null) throw NullPointerException("No series continuation given! - Use .continueOn() to set it!")
         if (contentSource == null) throw NullPointerException("No content source function given! - Use .contentSource() to set it!")
         if (venvPath == null) throw NullPointerException("No virtual env path given! - Use .venvPath() to set it!")
         if (ffmpegPath == null) throw NullPointerException("No Ffmpeg path given! - Use .ffmpegPath() to set it!")

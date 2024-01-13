@@ -10,13 +10,12 @@ fun main(args: Array<String>) {
         .videoAmount(1)
         .perVideo(5)
         .outro("Follow us for more!")
-        .series("Reddit")
-        .continueOn(1)
+        .series("Jokes")
         .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
         .contentSource {
             Generator.readJokeAPI()
         }
-        // .autoUploadTikTok(listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"), "C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\credentials.txt")
+        .randomColor()
         .build()
 
     /* Optionally download a background video */
@@ -25,7 +24,5 @@ fun main(args: Array<String>) {
     // FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")
 
     /* Run the Generator */
-    //Runner.run(settings)
-
-    //Uploader.uploadTikTok("1", "1", "a", "b")
+    Runner.run(settings)
 }

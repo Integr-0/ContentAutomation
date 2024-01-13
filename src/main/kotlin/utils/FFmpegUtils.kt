@@ -26,7 +26,7 @@ class FFmpegUtils {
                 .addInput(ffprobe!!.probe(inputSub))
                 .overrideOutputFiles(true)
                 .addOutput("$dir\\entries\\vids\\$name-cut.mp4")
-                .addExtraArgs("-vf", "crop=ih*(9/16):ih")
+                .addExtraArgs("-vf", "crop=ih/16*9:ih, scale=w=1080:h=1920:flags=lanczos")
                 .addExtraArgs("-crf", "23")
                 .addExtraArgs("-map", "0:v")
                 .addExtraArgs("-map", "1:a")

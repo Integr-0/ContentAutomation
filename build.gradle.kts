@@ -21,7 +21,6 @@ dependencies {
     implementation("io.github.ikfly:java-tts:1.0.2")
     implementation("net.bramp.ffmpeg:ffmpeg:0.8.0")
     implementation("org.slf4j:slf4j-nop:2.0.7")
-    implementation("org.seleniumhq.selenium:selenium-java:4.16.1")
 
 
 }

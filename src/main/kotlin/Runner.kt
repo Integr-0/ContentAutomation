@@ -5,6 +5,8 @@ import utils.*
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
 import java.io.File
+import java.time.LocalTime
+import kotlin.random.Random
 
 /**
  * **Author: Integr**
@@ -45,22 +47,13 @@ class Runner {
                     name
                 )
 
-                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!)
+                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!, randomCol(settings.rcol!!))
                 FFmpegUtils.addSubtitles(
                     "$dir\\entries\\vids\\$name-cut.mp4",
                     FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"),
                     "$name-final"
                 )
                 FileUtils.cleanUp(name)
-
-                if (settings.cred != null) {
-                    Uploader.uploadTikTok(
-                        "$dir\\entries\\saves\\$name-final.mp4",
-                        settings.aalTags!!.joinToString(" "),
-                        File(settings.cred!!).readLines()[0],
-                        File(settings.cred!!).readLines()[1]
-                    )
-                }
 
                 println()
                 println(
@@ -84,9 +77,13 @@ class Runner {
             )
         }
 
-        private fun randomBackVid(vids: List<String>) = vids[Faker.instance().number().numberBetween(0, vids.size - 1)]
 
+        private fun randomCol(isRandom: Boolean): String {
+            if (!isRandom) return "36f7ca"
+
+            val colors = listOf("36f7ca", "36f749", "c80eed", "f56416", "f20736", "eef207", "1b07f2", "f28b05", "f00c9c", "0c86f0")
+            return colors[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, colors.size-1)]
+        }
+        private fun randomBackVid(vids: List<String>) = vids[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, vids.size-1)]
     }
-
-
 }

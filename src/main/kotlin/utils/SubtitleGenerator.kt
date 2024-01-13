@@ -12,12 +12,12 @@ import java.io.InputStreamReader
  */
 class SubtitleGenerator {
     companion object {
-        fun genSub(filename: String, venvPath: String) {
+        fun genSub(filename: String, venvPath: String, color: String) {
             val dir = System.getProperty("user.dir")
 
             println("|| Generating subtitle .ass file")
             val p: Process =
-                Runtime.getRuntime().exec(String.format("$venvPath $dir\\SubtitleGeneration\\main.py $filename"));
+                Runtime.getRuntime().exec(String.format("$venvPath $dir\\SubtitleGeneration\\main.py $filename $color"));
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))

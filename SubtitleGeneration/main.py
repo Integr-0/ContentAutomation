@@ -6,21 +6,22 @@ import argparse
 
 argParser = argparse.ArgumentParser()
 argParser.add_argument("file")
+argParser.add_argument("col")
 
 args = argParser.parse_args()
 
 
-def srt_create(filename: str):
+def srt_create(filename: str, color: str):
     absolute_ass_path = Path(filename.removesuffix(".mp4")+"-sub.ass")
 
     word_dict = {
         'Fontname': 'Arial',
-        'Alignment': 5,
+        'Alignment': '5',
         'BorderStyle': '1',
         'Outline': '1',
         'Shadow': '2',
         'Blur': '21',
-        'Fontsize': 13,
+        'Fontsize': '13',
         'MarginL': '0',
         'MarginR': '0',
     }
@@ -37,9 +38,9 @@ def srt_create(filename: str):
         str(absolute_ass_path),
         word_level=True,
         font_size=13,
-        highlight_color="05f030",
+        highlight_color=color,
         **word_dict
     )
 
 
-srt_create(args.file)
+srt_create(args.file, args.col)
