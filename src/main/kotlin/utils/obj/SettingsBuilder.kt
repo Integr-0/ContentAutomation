@@ -19,8 +19,9 @@ class SettingsBuilder {
     var ffmpegPath: String? = null
     var probePath: String? = null
 
-    var cookiePath: String? = null
     var aalTags: List<String>? = null
+    var cred: String? = null
+
 
     private var isBuilt = false;
 
@@ -74,9 +75,9 @@ class SettingsBuilder {
         return this
     }
 
-    fun autoUpload(cookiePath: String, tags: List<String>): SettingsBuilder {
-        this.cookiePath = cookiePath
+    fun autoUploadTikTok(tags: List<String>, credFile: String): SettingsBuilder {
         this.aalTags = tags
+        this.cred = credFile
         return this
     }
 

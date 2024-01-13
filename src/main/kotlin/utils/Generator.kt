@@ -48,7 +48,6 @@ class Generator {
                 println("|| Reading API: $i/$amount")
                 for (it in (1..perVideo)) {
                     val obj = genFun(it)
-                    println(obj)
                     ttsText += " $obj "
                     contents += obj
                 }

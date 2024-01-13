@@ -4,7 +4,7 @@ import utils.obj.SettingsBuilder
 fun main(args: Array<String>) {
     /* Settings */
     val settings = SettingsBuilder()
-        .venvPath("C:\\users\\erikr\\Desktop\\Misc\\JokeAPI\\venv\\Scripts\\python.exe")
+        .venvPath("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\venv\\Scripts\\python.exe")
         .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
         .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
         .videoAmount(1)
@@ -14,13 +14,9 @@ fun main(args: Array<String>) {
         .continueOn(1)
         .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
         .contentSource {
-            Generator.readRedditAPI(
-                it,
-                "https://www.reddit.com/r/askreddit",
-                2
-            )
+            Generator.readJokeAPI()
         }
-        //TODO: Cookie Path -> .autoUpload("", listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"))
+        // .autoUploadTikTok(listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"), "C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\credentials.txt")
         .build()
 
     /* Optionally download a background video */
@@ -29,5 +25,7 @@ fun main(args: Array<String>) {
     // FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")
 
     /* Run the Generator */
-    Runner.run(settings)
+    //Runner.run(settings)
+
+    //Uploader.uploadTikTok("1", "1", "a", "b")
 }

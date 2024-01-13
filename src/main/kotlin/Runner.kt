@@ -4,7 +4,7 @@ import net.bramp.ffmpeg.FFprobe
 import utils.*
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
-import kotlin.random.Random
+import java.io.File
 
 /**
  * **Author: Integr**
@@ -53,11 +53,13 @@ class Runner {
                 )
                 FileUtils.cleanUp(name)
 
-                if (settings.cookiePath != null) {
-                    //TODO: Cookies for TikTok were set -> Upload
-                    //TODO: Potentially AUTO-UPLOAD Here
-
-                    // TODO DISABLED: TikTokUploader.upload("$dir\\entries\\saves\\$name-final.mp4", settings.venvPath!!, settings.aalTags!!.joinToString(" "), settings.cookiePath!!)
+                if (settings.cred != null) {
+                    Uploader.uploadTikTok(
+                        "$dir\\entries\\saves\\$name-final.mp4",
+                        settings.aalTags!!.joinToString(" "),
+                        File(settings.cred!!).readLines()[0],
+                        File(settings.cred!!).readLines()[1]
+                    )
                 }
 
                 println()

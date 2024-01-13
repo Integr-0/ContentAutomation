@@ -17,6 +17,7 @@
     * [Configuring the Runner and running it](#configuring-the-runner-and-running-it)
     * [Downloading external content](#downloading-external-content)
     * [Grabbing the finished product](#grabbing-the-finished-product)
+    * [Getting ```cookies.txt``` file for the Bot](#getting-cookiestxt-file-for-the-bot)
   * [Dependencies](#dependencies)
     * [Kotlin](#kotlin)
     * [Python](#python)
@@ -51,7 +52,6 @@ I'm a student from Austria. I like to code random projects like this in my free 
 - stable-ts (pip -> ```pip install stable-ts```)
 - openai-whisper (pip -> ```pip install openai-whisper```)
 - torch (pip -> ```pip install torch```)
-- tiktok-uploader (pip -> ```pip install tiktok-uploader```)
 
 ## Getting started
 
@@ -71,17 +71,25 @@ Clone this repo and open the Main.kt file and edit the settings.
 
 ````kotlin
 val settings = SettingsBuilder()
-    .videoAmount(5)
-    .perVideo(5)
-    .outro("Follow us for more!")
-    .series("Jokes")
-    .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
-    .continueOn(1)
-    .contentSource { Generator.readJokeAPI() }
-    .venvPath("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\venv\\Scripts\\python.exe")
-    .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
-    .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
-    .build()
+  .venvPath("C:\\users\\erikr\\Desktop\\Misc\\JokeAPI\\venv\\Scripts\\python.exe")
+  .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
+  .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
+  .videoAmount(1)
+  .perVideo(5)
+  .outro("Follow us for more!")
+  .series("Reddit")
+  .continueOn(1)
+  .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
+  .contentSource {
+    Generator.readRedditAPI(
+      it,
+      "https://www.reddit.com/r/askreddit",
+      2
+    )
+  }
+  .autoUpload("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\credentials.txt", listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"))
+  .build()
+
 ````
 
 Run the ``main()`` method (via Gradle)
@@ -116,8 +124,9 @@ This means that:
 - Hour: 8
 - Index of Group: 2
 
-### Getting ```cookies.txt``` file for the Bot
-More Info Here: [Click ME](https://github.com/kairi003/Get-cookies.txt-LOCALLY)
+### Making ```credentials.txt``` file for the Bot
+First line: Password
+Second line: Email
 
 ## Dependencies
 
@@ -135,6 +144,8 @@ More Info Here: [Click ME](https://github.com/kairi003/Get-cookies.txt-LOCALLY)
   - BSD 2-Clause "Simplified" License
 - [Slf4j](https://www.slf4j.org/)
   - MIT License 
+- [Selenium](https://www.selenium.dev/)
+  - Apache License, Version 2.0
 
 ### Python
 
@@ -142,8 +153,6 @@ More Info Here: [Click ME](https://github.com/kairi003/Get-cookies.txt-LOCALLY)
   - [Special](https://github.com/pytorch/pytorch/blob/main/LICENSE)
 - [OpenAI-Whisper](https://github.com/openai/whisper)
   - MIT License
-- [tiktik-uploader](https://github.com/wkaisertexas/tiktok-uploader)
-  - [Special](https://github.com/wkaisertexas/tiktok-uploader/blob/main/LISCENSE)
 
 ### External
 
