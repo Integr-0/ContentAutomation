@@ -157,10 +157,10 @@ class Generator {
             return "$setup $punchline"
         }
 
-        fun readRandomJokeAPI(): String {
+        fun getRandomJokeAPI(): ((Int) -> String) {
 
-            val apis = listOf(
-                { readJokeAPI() },
+            val apis: List<((Int) -> String)> = listOf(
+                { readJokeAPI()},
                 { readProgrammerJokeAPI() },
                 { readDadJokeAPI() },
                 { readOfficialJokeAPI() },
@@ -169,7 +169,7 @@ class Generator {
                 { readChuckNorisQuoteAPI() }
             )
 
-            return apis[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, apis.size-1)]()
+            return apis[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, apis.size-1)]
         }
     }
 }

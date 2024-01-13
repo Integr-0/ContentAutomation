@@ -12,9 +12,7 @@ fun main() {
         .perVideo(5)
         .outro("Follow us for more!")
         .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
-        .contentSource {
-            Generator.readRandomJokeAPI()
-        }
+        .randomSource()
         .randomColor()
         .build()
 

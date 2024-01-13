@@ -1,5 +1,7 @@
 package utils.obj
 
+import utils.Generator
+
 /**
  * **Author: Integr**
  * - **What:** Settings for the runner
@@ -41,6 +43,11 @@ class SettingsBuilder {
 
     fun contentSource(contentSource: (Int) -> String): SettingsBuilder {
         this.contentSource = contentSource
+        return this
+    }
+
+    fun randomSource(): SettingsBuilder {
+        this.contentSource = Generator.getRandomJokeAPI()
         return this
     }
 
