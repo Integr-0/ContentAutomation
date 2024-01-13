@@ -9,6 +9,7 @@ import utils.obj.VideoObject
 import java.net.URL
 import java.time.LocalDate
 import java.time.LocalTime
+import kotlin.random.Random
 
 /**
  * **Author: Integr**
@@ -22,13 +23,9 @@ class Generator {
             amount: Int,
             perVideo: Int,
             outro: String,
-            series: String,
-            firstPartNum: Int,
             genFun: (Int) -> String
         ): VideoContainer {
             println("Generating video content")
-
-            var pn = firstPartNum
 
             val name = (
                 LocalDate.now().dayOfMonth.toString()
@@ -55,8 +52,7 @@ class Generator {
                 ttsText += " $outro"
                 println("|| Generating TTS: $i/$amount")
                 TTSGen.genTTS(ttsText, i, name)
-                videos += VideoObject("$series Part $pn", series, contents, outro, name + "_" + i + ".mp3")
-                pn++
+                videos += VideoObject(contents, outro, name + "_" + i + ".mp3")
             }
 
             return VideoContainer(videos)
@@ -72,7 +68,7 @@ class Generator {
 
             val response = client.newCall(request).execute()
 
-            return response.body().string()
+            return response.body().string().replace("\n", " ")
         }
 
         fun readChuckNorisQuoteAPI(): String {
@@ -92,11 +88,12 @@ class Generator {
             val request = Request.Builder()
                 .url("https://v2.jokeapi.dev/joke/Miscellaneous,Dark,Pun,Spooky,Christmas?blacklistFlags=nsfw,racist,sexist&format=txt&type=single")
                 .get()
+                .addHeader("User-Agent", "ContentGen/1.0")
                 .build()
 
             val response = client.newCall(request).execute()
 
-            return response.body().string()
+            return response.body().string().replace("\n", " ")
         }
 
         fun readDarkJokeAPI(): String {
@@ -105,11 +102,74 @@ class Generator {
             val request = Request.Builder()
                 .url("https://v2.jokeapi.dev/joke/Dark?blacklistFlags=nsfw,racist,sexist&format=txt&type=single")
                 .get()
+                .addHeader("User-Agent", "ContentGen/1.0")
                 .build()
 
             val response = client.newCall(request).execute()
 
-            return response.body().string()
+            return response.body().string().replace("\n", " ")
+        }
+
+        fun readDadJokeAPI(): String {
+            val client = OkHttpClient()
+
+            val request = Request.Builder()
+                .url("https://icanhazdadjoke.com/")
+                .get()
+                .addHeader("Accept", "text/plain")
+                .addHeader("User-Agent", "ContentGen/1.0")
+                .build()
+
+            val response = client.newCall(request).execute()
+
+            return response.body().string().replace("\n", " ")
+        }
+
+        fun readGeekJokeAPI(): String {
+            val client = OkHttpClient()
+
+            val request = Request.Builder()
+                .url("https://geek-jokes.sameerkumar.website/api?format=txt")
+                .get()
+                .addHeader("User-Agent", "ContentGen/1.0")
+                .build()
+
+            val response = client.newCall(request).execute()
+
+            return response.body().string().replace("\n", " ").removePrefix("\"").removeSuffix("\"")
+        }
+
+        fun readOfficialJokeAPI(): String {
+            val client = OkHttpClient()
+
+            val request = Request.Builder()
+                .url("https://official-joke-api.appspot.com/random_joke")
+                .get()
+                .addHeader("User-Agent", "ContentGen/1.0")
+                .build()
+
+            val response = client.newCall(request).execute()
+
+            val rString = response.body().string().replace("\n", " ")
+
+            val setup = rString.substringAfter("\"setup\":\"").substringBefore("\",\"punchline\"")
+            val punchline = rString.substringAfter("\"punchline\":\"").substringBefore("\",\"id\"")
+            return "$setup $punchline"
+        }
+
+        fun readRandomJokeAPI(): String {
+
+            val apis = listOf(
+                { readJokeAPI() },
+                { readProgrammerJokeAPI() },
+                { readDadJokeAPI() },
+                { readOfficialJokeAPI() },
+                { readGeekJokeAPI() },
+                { readDarkJokeAPI() },
+                { readChuckNorisQuoteAPI() }
+            )
+
+            return apis[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, apis.size-1)]()
         }
     }
 }

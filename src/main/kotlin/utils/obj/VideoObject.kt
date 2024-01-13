@@ -13,8 +13,6 @@ import kotlin.reflect.typeOf
  * - **Why:** Essential function of the bot
  */
 data class VideoObject(
-    var title: String = "",
-    var series: String = "",
     var parts: List<String> = listOf(),
     var outro: String = "",
     var ttsFile: String = ""

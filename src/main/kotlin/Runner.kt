@@ -23,8 +23,6 @@ class Runner {
                 settings.videos!!,
                 settings.perVideo!!,
                 settings.outro!!,
-                settings.series!!,
-                settings.continueOn!!,
                 settings.contentSource!!
             )
 

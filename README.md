@@ -70,24 +70,17 @@ Clone this repo and open the Main.kt file and edit the settings.
 
 ````kotlin
 val settings = SettingsBuilder()
-  .venvPath("C:\\users\\erikr\\Desktop\\Misc\\JokeAPI\\venv\\Scripts\\python.exe")
+  .venvPath("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\venv\\Scripts\\python.exe")
   .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
   .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
   .videoAmount(1)
   .perVideo(5)
   .outro("Follow us for more!")
-  .series("Reddit")
-  .continueOn(1)
   .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
   .contentSource {
-    Generator.readRedditAPI(
-      it,
-      "https://www.reddit.com/r/askreddit",
-      2
-    )
+    Generator.readJokeAPI()
   }
   .randomColor()
-  .autoUpload("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\credentials.txt", listOf("#fyp", "#foryou", "#jokes", "#funny", "#fun", "#facts", "#joke", "#meme"))
   .build()
 
 ````
