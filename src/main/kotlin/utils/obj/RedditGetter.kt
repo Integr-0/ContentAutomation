@@ -15,6 +15,7 @@ import java.net.URL
  * - **Why:** To generate scripts for videos
  */
 
+@Suppress("Unchecked_Cast")
 class RedditGetter {
     companion object {
         fun getPosts(url: URL, postCount: Int, responseCount: Int): ArrayList<Post> {

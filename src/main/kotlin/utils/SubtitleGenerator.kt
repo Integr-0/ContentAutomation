@@ -1,7 +1,6 @@
 package utils
 
 import java.io.BufferedReader
-import java.io.File
 import java.io.InputStreamReader
 
 /**
@@ -16,8 +15,7 @@ class SubtitleGenerator {
             val dir = System.getProperty("user.dir")
 
             println("|| Generating subtitle .ass file")
-            val p: Process =
-                Runtime.getRuntime().exec(String.format("$venvPath $dir\\SubtitleGeneration\\main.py $filename $color"));
+            val p: Process = Runtime.getRuntime().exec(String.format("$venvPath $dir\\SubtitleGeneration\\main.py $filename $color"))
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))

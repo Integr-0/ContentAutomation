@@ -1,10 +1,8 @@
-import com.github.javafaker.Faker
 import net.bramp.ffmpeg.FFmpeg
 import net.bramp.ffmpeg.FFprobe
 import utils.*
 import utils.obj.NotBuiltException
 import utils.obj.SettingsBuilder
-import java.io.File
 import java.time.LocalTime
 import kotlin.random.Random
 

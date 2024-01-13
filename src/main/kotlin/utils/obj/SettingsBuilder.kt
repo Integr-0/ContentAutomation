@@ -17,7 +17,7 @@ class SettingsBuilder {
     var ffmpegPath: String? = null
     var probePath: String? = null
     var rcol: Boolean? = false
-    private var isBuilt = false;
+    private var isBuilt = false
 
     fun videoAmount(videos: Int): SettingsBuilder {
         this.videos = videos

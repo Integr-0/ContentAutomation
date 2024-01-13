@@ -1,7 +1,7 @@
 import utils.*
 import utils.obj.SettingsBuilder
 
-fun main(args: Array<String>) {
+fun main() {
     /* Settings */
     val settings = SettingsBuilder()
         .venvPath("C:\\Users\\erikr\\Desktop\\Projects\\ContentAutomation\\venv\\Scripts\\python.exe")

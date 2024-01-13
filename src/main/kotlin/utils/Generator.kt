@@ -17,6 +17,7 @@ import kotlin.random.Random
  * - **How:** APIs and user settings
  * - **Why:** Essential to generate TTS, video and content
  */
+@Suppress("Unused", "MemberVisibilityCanBePrivate")
 class Generator {
     companion object {
         fun genVideoData(

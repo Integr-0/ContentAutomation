@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder
  * - **How:** Using the args
  * - **Why:** Essential function of the bot
  */
+@Suppress("Unused")
 class VideoContainer(var contents: List<VideoObject>) {
     fun toJson(): String {
         return GsonBuilder().create().toJson(this)

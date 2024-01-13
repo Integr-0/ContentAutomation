@@ -13,6 +13,7 @@ import kotlin.io.path.name
  * - **How:** yt-dlp and File utilities
  * - **Why:** To download videos and store things
  */
+@Suppress("Unused")
 class FileUtils {
     companion object {
         fun dump(json: String, name: String) {
@@ -25,8 +26,7 @@ class FileUtils {
             Files.createDirectories(Path("$dir/entries/download/"))
 
             val p: Process =
-                Runtime.getRuntime()
-                    .exec(String.format("yt-dlp -f mp4 -o \"$dir\\entries\\download\\$name.mp4\" $url"));
+                Runtime.getRuntime().exec(String.format("yt-dlp -f mp4 -o \"$dir\\entries\\download\\$name.mp4\" $url"))
 
             val stdInput = BufferedReader(InputStreamReader(p.inputStream))
             val stdError = BufferedReader(InputStreamReader(p.errorStream))
