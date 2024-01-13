@@ -3,7 +3,6 @@ package utils
 import com.github.javafaker.Faker
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import utils.obj.RedditGetter
 import utils.obj.VideoContainer
 import utils.obj.VideoObject
 import java.net.URL
