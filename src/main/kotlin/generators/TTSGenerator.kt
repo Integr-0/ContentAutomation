@@ -1,10 +1,9 @@
-package utils
+package generators
 
 import io.ikfly.constant.OutputFormat
 import io.ikfly.constant.VoiceEnum
 import io.ikfly.model.SSML
 import io.ikfly.service.TTSService
-
 
 /**
  * **Author: Integr**
@@ -12,7 +11,7 @@ import io.ikfly.service.TTSService
  * - **How:** Using the edge-tts module
  * - **Why:** Essential to use the bot
  */
-class TTSGen {
+class TTSGenerator {
     companion object {
         fun genTTS(text: String, partNum: Int, name: String) {
             val ts = TTSService()

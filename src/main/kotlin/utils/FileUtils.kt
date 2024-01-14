@@ -6,7 +6,6 @@ import java.nio.file.Files
 import kotlin.io.path.Path
 import kotlin.io.path.name
 
-
 /**
  * **Author: Integr**
  * - **What:** handles Files

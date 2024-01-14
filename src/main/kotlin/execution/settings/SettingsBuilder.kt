@@ -1,6 +1,6 @@
-package utils.obj
+package execution.settings
 
-import utils.Generator
+import generators.Generator
 
 /**
  * **Author: Integr**
@@ -8,7 +8,7 @@ import utils.Generator
  * - **How:** Using the builder functions to set values
  * - **Why:** To make configuring the bot easier
  */
-
+@Suppress("Unused")
 class SettingsBuilder {
     var videos: Int? = null
     var perVideo: Int? = null
@@ -74,8 +74,8 @@ class SettingsBuilder {
     fun build(): SettingsBuilder {
         isBuilt = true
 
-        if (videos == null) throw NullPointerException("No video count given! - Use .videoAmount() to set it!")
-        if (perVideo == null) throw NullPointerException("No content per video count given! - Use .perVideo() to set it!")
+        if (videos == null) throw NullPointerException("No utils.video count given! - Use .videoAmount() to set it!")
+        if (perVideo == null) throw NullPointerException("No content per utils.video count given! - Use .perVideo() to set it!")
         if (outro == null) throw NullPointerException("No outro given! - Use .outro() to set it!")
         if (backVids == null) throw NullPointerException("No background videos count given! - Use .backVids() to set it!")
         if (contentSource == null) throw NullPointerException("No content source function given! - Use .contentSource() to set it!")
@@ -88,11 +88,3 @@ class SettingsBuilder {
 
     fun isBuilt() = isBuilt
 }
-
-/**
- * **Author: Integr**
- * - **What:** Exception that the SettingsBuilder is not Built
- * - **How:** gets thrown when a Value is Null
- * - **Why:** Debugging
- */
-class NotBuiltException(message: String?) : Exception(message)

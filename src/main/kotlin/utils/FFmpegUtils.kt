@@ -5,7 +5,6 @@ import net.bramp.ffmpeg.FFmpegExecutor
 import net.bramp.ffmpeg.FFprobe
 import net.bramp.ffmpeg.builder.FFmpegBuilder
 
-
 /**
  * **Author: Integr**
  * - **What:** Handles FFmpeg functions
@@ -20,7 +19,7 @@ class FFmpegUtils {
         fun edit(inputVid: String, inputSub: String, name: String) {
             val dir = System.getProperty("user.dir")
 
-            println("|| Cutting video to length")
+            println("|| Cutting utils.video to length")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe!!.probe(inputVid))
                 .addInput(ffprobe!!.probe(inputSub))
@@ -41,7 +40,7 @@ class FFmpegUtils {
         fun addSubtitles(inputVid: String, inputSub: String, outPutName: String) {
             val dir = System.getProperty("user.dir")
 
-            println("|| Adding subtitle .ass file to video")
+            println("|| Adding subtitle .ass file to utils.video")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe!!.probe(inputVid))
                 .overrideOutputFiles(true)

@@ -66,7 +66,7 @@ Create a new Python venv (or use your own Python) and get the path to the "pytho
 > [!CAUTION]
 > Make sure you have all tools installed, and u have the correct paths
 
-Clone this repo and open the Main.kt file and edit the settings.
+Clone this repo and open the Main.kt file and edit the execution.settings.
 
 ````kotlin
 val settings = SettingsBuilder()
@@ -95,7 +95,7 @@ FileUtils.downloadYT("https://www.youtube.com/watch?v=2VpG0WS4uCo", "Spiral_Park
 FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")
 ````
 
-These are 3 examples of downloading a YouTube video and saving is under a name.
+These are 3 examples of downloading a YouTube utils.video and saving is under a name.
 
 ### Grabbing the finished product
 

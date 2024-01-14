@@ -22,7 +22,7 @@ out/
 .classpath
 .factorypath
 .project
-.settings
+.execution.settings
 .springBeans
 .sts4-cache
 bin/

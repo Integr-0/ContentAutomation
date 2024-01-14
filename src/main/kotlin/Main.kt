@@ -1,6 +1,5 @@
-import utils.*
-import utils.obj.SettingsBuilder
-import utils.obj.asyncruntime.*
+import execution.Runner
+import execution.settings.SettingsBuilder
 
 fun main() {
     /* Settings */
@@ -16,7 +15,7 @@ fun main() {
         .randomColor()
         .build()
 
-    /* Optionally download a background video */
+    /* Optionally download a background utils.video */
     // FileUtils.downloadYT("https://www.youtube.com/watch?v=Pt5_GSKIWQM", "Hypixel_Parkour")
     // FileUtils.downloadYT("https://www.youtube.com/watch?v=2VpG0WS4uCo", "Spiral_Parkour")
     // FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")

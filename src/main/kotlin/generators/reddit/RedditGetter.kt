@@ -1,4 +1,4 @@
-package utils
+package generators.reddit
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -7,14 +7,12 @@ import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
 
-
 /**
  * **Author: Julian**
  * - **What:** Get the top post and responses from r/ask
  * - **How:** By getting the page data json and reading its data
  * - **Why:** To generate scripts for videos
  */
-
 @Suppress("Unchecked_Cast")
 class RedditGetter {
     companion object {
@@ -96,15 +94,3 @@ class RedditGetter {
         }
     }
 }
-
-/**
- * **Author: Julian**
- * - **What:** Track post data
- * - **How:** Using the args
- * - **Why:** Simplicity
- */
-
-data class Post(
-    val question: String = "",
-    val responses: ArrayList<String> = arrayListOf(),
-)

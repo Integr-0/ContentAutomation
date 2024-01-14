@@ -1,8 +1,12 @@
+package execution
+
+import generators.Generator
+import generators.SubtitleGenerator
 import net.bramp.ffmpeg.FFmpeg
 import net.bramp.ffmpeg.FFprobe
 import utils.*
-import utils.obj.NotBuiltException
-import utils.obj.SettingsBuilder
+import execution.settings.NotBuiltException
+import execution.settings.SettingsBuilder
 import java.time.LocalTime
 import kotlin.random.Random
 

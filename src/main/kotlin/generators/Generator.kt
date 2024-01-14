@@ -1,10 +1,11 @@
-package utils
+package generators
 
 import com.github.javafaker.Faker
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import utils.obj.VideoContainer
-import utils.obj.VideoObject
+import utils.video.VideoContainer
+import utils.video.VideoObject
+import generators.reddit.RedditGetter
 import java.net.URL
 import java.time.LocalDate
 import java.time.LocalTime
@@ -12,9 +13,9 @@ import kotlin.random.Random
 
 /**
  * **Author: Integr**
- * - **What:** Generates video data
- * - **How:** APIs and user settings
- * - **Why:** Essential to generate TTS, video and content
+ * - **What:** Generates utils.video data
+ * - **How:** APIs and user execution.settings
+ * - **Why:** Essential to generate TTS, utils.video and content
  */
 @Suppress("Unused", "MemberVisibilityCanBePrivate")
 class Generator {
@@ -25,7 +26,7 @@ class Generator {
             outro: String,
             genFun: (Int) -> String
         ): VideoContainer {
-            println("Generating video content")
+            println("Generating utils.video content")
 
             val name = (
                 LocalDate.now().dayOfMonth.toString()
@@ -51,7 +52,7 @@ class Generator {
 
                 ttsText += " $outro"
                 println("|| Generating TTS: $i/$amount")
-                TTSGen.genTTS(ttsText, i, name)
+                TTSGenerator.genTTS(ttsText, i, name)
                 videos += VideoObject(contents, outro, name + "_" + i + ".mp3")
             }
 
@@ -160,7 +161,7 @@ class Generator {
         fun getRandomJokeAPI(): ((Int) -> String) {
 
             val apis: List<((Int) -> String)> = listOf(
-                { readJokeAPI()},
+                { readJokeAPI() },
                 { readProgrammerJokeAPI() },
                 { readDadJokeAPI() },
                 { readOfficialJokeAPI() },
