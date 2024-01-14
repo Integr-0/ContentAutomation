@@ -20,9 +20,9 @@ import kotlin.random.Random
 
 /**
  * **Author: Integr**
- * - **What:** Generates utils.video data
- * - **How:** APIs and user execution.settings
- * - **Why:** Essential to generate TTS, utils.video and content
+ * - **What:** Generates video data
+ * - **How:** APIs and user settings
+ * - **Why:** Essential to generate TTS, video and content
  */
 @Suppress("Unused", "MemberVisibilityCanBePrivate")
 class Generator {

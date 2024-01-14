@@ -3,10 +3,14 @@
 #
 #     Full copyright found in LICENSE.md
 
+# noinspection PyUnresolvedReferences
 from pathlib import Path
 
+# noinspection PyUnresolvedReferences
 import torch
+# noinspection PyUnresolvedReferences
 import stable_whisper as whisper
+# noinspection PyUnresolvedReferences
 import argparse
 
 argParser = argparse.ArgumentParser()
@@ -39,6 +43,7 @@ def generate(filename: str, color: str):
 
     transcription.split_by_gap(0.5).split_by_length(38).merge_by_gap(0.15, max_words=2)
 
+    # noinspection PyArgumentList
     transcription.to_ass(
         str(path),
         word_level=True,

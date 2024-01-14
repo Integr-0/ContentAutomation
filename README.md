@@ -1,3 +1,4 @@
+<!--suppress CheckImageSize -->
 <img alt="YT_TRANS.png" height="200" src="YT_TRANS.png" width="200"/>
 
 # Content Automation
@@ -95,7 +96,7 @@ FileUtils.downloadYT("https://www.youtube.com/watch?v=2VpG0WS4uCo", "Spiral_Park
 FileUtils.downloadYT("https://www.youtube.com/watch?v=JlPEb6WNuDI", "Scenic_Parkour")
 ````
 
-These are 3 examples of downloading a YouTube utils.video and saving is under a name.
+These are 3 examples of downloading a YouTube video and saving is under a name.
 
 ### Grabbing the finished product
 
@@ -125,7 +126,7 @@ This means that:
   - Apache License, Version 2.0
 - [Gson](https://github.com/google/gson)
   - Apache License, Version 2.0
-- [Javafaker](https://github.com/HannnnXiao/javafaker)
+- [JavaFaker](https://github.com/HannnnXiao/javafaker)
   - Apache License, Version 2.0
 - [Java-TTS](https://github.com/ikfly/java-tts)
   - None
@@ -148,4 +149,4 @@ This means that:
 - [FFMPEG](https://ffmpeg.org/)
   - GNU Lesser General Public License (LGPL) version 2.1
 - [YT-DLP](https://github.com/yt-dlp/yt-dlp)
-  - The Unlicense
+  - The UnLicense

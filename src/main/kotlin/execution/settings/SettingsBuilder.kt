@@ -25,7 +25,7 @@ class SettingsBuilder {
     var venvPath: String? = null
     var ffmpegPath: String? = null
     var probePath: String? = null
-    var rcol: Boolean? = false
+    var colorIsRandom: Boolean? = false
     private var isBuilt = false
 
     fun videoAmount(videos: Int): SettingsBuilder {
@@ -74,7 +74,7 @@ class SettingsBuilder {
     }
 
     fun randomColor(): SettingsBuilder {
-        this.rcol = true
+        this.colorIsRandom = true
         return this
     }
 

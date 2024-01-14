@@ -54,7 +54,7 @@ class Runner {
                     name
                 )
 
-                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!, randomCol(settings.rcol!!))
+                SubtitleGenerator.genSub("$dir\\entries\\vids\\$name-cut.mp4", settings.venvPath!!, randomCol(settings.colorIsRandom!!))
                 FFmpegUtils.addSubtitles(
                     "$dir\\entries\\vids\\$name-cut.mp4",
                     FileUtils.fixPathForSubAdd("$dir\\entries\\vids\\$name-cut-sub.ass"),

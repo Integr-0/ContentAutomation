@@ -7,7 +7,7 @@
 
 package async.handlers
 
-import async.annotations.AsyncTick
+import async.annotations.AsyncLoop
 import kotlin.reflect.KCallable
 import kotlin.reflect.KClass
 import kotlin.reflect.full.createInstance
@@ -26,7 +26,7 @@ class AsyncLoopHandler {
 
         fun <T : Any> subscribe(clazz: KClass<T>) {
             for (m in clazz.members) {
-                if (m.hasAnnotation<AsyncTick>()) {
+                if (m.hasAnnotation<AsyncLoop>()) {
                     threadPool += Pair(m, Thread {
                         while (true) m.call(clazz.createInstance())
                     })
@@ -37,7 +37,7 @@ class AsyncLoopHandler {
 
         fun <T : Any> unsubscribe(clazz: KClass<T>) {
             for (m in clazz.members) {
-                if (m.hasAnnotation<AsyncTick>()) {
+                if (m.hasAnnotation<AsyncLoop>()) {
                     threadPool.remove(m)
                 }
             }
