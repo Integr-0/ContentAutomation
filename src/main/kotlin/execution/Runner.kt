@@ -89,8 +89,8 @@ class Runner {
             if (!isRandom) return "36f7ca"
 
             val colors = listOf("36f7ca", "36f749", "c80eed", "f56416", "f20736", "eef207", "1b07f2", "f28b05", "f00c9c", "0c86f0")
-            return colors[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, colors.size-1)]
+            return colors[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, colors.size)]
         }
-        private fun randomBackVid(vids: List<String>) = vids[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, vids.size-1)]
+        private fun randomBackVid(vids: List<String>) = vids[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, vids.size)]
     }
 }

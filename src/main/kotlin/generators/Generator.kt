@@ -177,7 +177,7 @@ class Generator {
                 { readChuckNorisQuoteAPI() }
             )
 
-            return apis[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, apis.size-1)]
+            return apis[Random(LocalTime.now().second*System.currentTimeMillis()).nextInt(0, apis.size)]
         }
     }
 }
