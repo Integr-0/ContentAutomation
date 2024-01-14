@@ -1,3 +1,10 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 package async.annotations
 
 /**

@@ -1,3 +1,10 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 package execution.settings
 
 import generators.Generator
@@ -74,14 +81,14 @@ class SettingsBuilder {
     fun build(): SettingsBuilder {
         isBuilt = true
 
-        if (videos == null) throw NullPointerException("No utils.video count given! - Use .videoAmount() to set it!")
-        if (perVideo == null) throw NullPointerException("No content per utils.video count given! - Use .perVideo() to set it!")
-        if (outro == null) throw NullPointerException("No outro given! - Use .outro() to set it!")
-        if (backVids == null) throw NullPointerException("No background videos count given! - Use .backVids() to set it!")
-        if (contentSource == null) throw NullPointerException("No content source function given! - Use .contentSource() to set it!")
-        if (venvPath == null) throw NullPointerException("No virtual env path given! - Use .venvPath() to set it!")
-        if (ffmpegPath == null) throw NullPointerException("No Ffmpeg path given! - Use .ffmpegPath() to set it!")
-        if (probePath == null) throw NullPointerException("No Ffmpeg probe path given! - Use .probePath() to set it!")
+        if (videos == null) throw NotSetException("No utils.video count given! - Use .videoAmount() to set it!")
+        if (perVideo == null) throw NotSetException("No content per utils.video count given! - Use .perVideo() to set it!")
+        if (outro == null) throw NotSetException("No outro given! - Use .outro() to set it!")
+        if (backVids == null) throw NotSetException("No background videos count given! - Use .backVids() to set it!")
+        if (contentSource == null) throw NotSetException("No content source function given! - Use .contentSource() to set it!")
+        if (venvPath == null) throw NotSetException("No virtual env path given! - Use .venvPath() to set it!")
+        if (ffmpegPath == null) throw NotSetException("No Ffmpeg path given! - Use .ffmpegPath() to set it!")
+        if (probePath == null) throw NotSetException("No Ffmpeg probe path given! - Use .probePath() to set it!")
 
         return this
     }

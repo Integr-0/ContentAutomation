@@ -1,3 +1,10 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 package generators
 
 import com.github.javafaker.Faker
@@ -26,7 +33,7 @@ class Generator {
             outro: String,
             genFun: (Int) -> String
         ): VideoContainer {
-            println("Generating utils.video content")
+            println("Generating video content")
 
             val name = (
                 LocalDate.now().dayOfMonth.toString()

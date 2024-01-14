@@ -85,7 +85,7 @@ val settings = SettingsBuilder()
 
 ````
 
-Run the ``main()`` method (via Gradle)
+Run the ``main()`` method (via Intellij or your IDE)
 
 ### Downloading external content
 

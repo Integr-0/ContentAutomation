@@ -1,6 +1,20 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 import execution.Runner
 import execution.settings.SettingsBuilder
 
+/**
+ * # ContentAutomation
+ * Authors: [Integr](https://github.com/Integr-0) with Reddit-getter by [Julian](https://github.com/Julian-Mostbauer)
+ * - **What:** Creates short-form videos
+ * - **How:** FFmpeg, Whisper-AI, Edge-TTS and various APIs
+ * - **Why:** To automatically create videos
+ */
 fun main() {
     /* Settings */
     val settings = SettingsBuilder()

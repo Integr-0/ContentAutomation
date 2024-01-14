@@ -1,3 +1,10 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 package utils
 
 import net.bramp.ffmpeg.FFmpeg
@@ -19,7 +26,7 @@ class FFmpegUtils {
         fun edit(inputVid: String, inputSub: String, name: String) {
             val dir = System.getProperty("user.dir")
 
-            println("|| Cutting utils.video to length")
+            println("|| Cutting video to length")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe!!.probe(inputVid))
                 .addInput(ffprobe!!.probe(inputSub))
@@ -40,7 +47,7 @@ class FFmpegUtils {
         fun addSubtitles(inputVid: String, inputSub: String, outPutName: String) {
             val dir = System.getProperty("user.dir")
 
-            println("|| Adding subtitle .ass file to utils.video")
+            println("|| Adding subtitle .ass file to video")
             val builder = FFmpegBuilder()
                 .addInput(ffprobe!!.probe(inputVid))
                 .overrideOutputFiles(true)
