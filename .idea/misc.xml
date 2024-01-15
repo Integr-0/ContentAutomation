@@ -4,10 +4,13 @@
     <option name="sdkName" value="Python 3.12 (JokeAPI)" />
   </component>
   <component name="EntryPointsManager">
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="utils.obj.asyncruntime.Async" />
-      <item index="1" class="java.lang.String" itemvalue="utils.obj.asyncruntime.AsyncLoop" />
-      <item index="2" class="java.lang.String" itemvalue="utils.obj.asyncruntime.AsyncTick" />
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="async.annotations.AsyncLoop" />
+      <item index="1" class="java.lang.String" itemvalue="async.annotations.AsyncLoop" />
+      <item index="2" class="java.lang.String" itemvalue="async.annotations.AsyncLoop" />
+      <item index="3" class="java.lang.String" itemvalue="utils.obj.asyncruntime.Async" />
+      <item index="4" class="java.lang.String" itemvalue="utils.obj.asyncruntime.AsyncLoop" />
+      <item index="5" class="java.lang.String" itemvalue="utils.obj.asyncruntime.AsyncTick" />
     </list>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />

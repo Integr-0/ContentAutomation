@@ -22,8 +22,7 @@ dependencies {
     implementation("net.bramp.ffmpeg:ffmpeg:0.8.0")
     implementation("org.slf4j:slf4j-nop:2.0.7")
     implementation(kotlin("reflect"))
-
-
+    implementation("org.junit.jupiter:junit-jupiter-engine:5.10.1")
 }
 
 tasks.test {
