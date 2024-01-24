@@ -169,7 +169,7 @@ class Generator {
 
             val apis: List<((Int) -> String)> = listOf(
                 { readJokeAPI() },
-                { readProgrammerJokeAPI() },
+                // { readProgrammerJokeAPI() },
                 { readDadJokeAPI() },
                 { readOfficialJokeAPI() },
                 { readGeekJokeAPI() },
