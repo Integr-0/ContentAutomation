@@ -1,5 +1,13 @@
+/*
+ *    This file is part of the Content automation project by Integr
+ *    Copyright (c) Integr.
+ *
+ *    Full copyright found in LICENSE.md
+ */
+
 package generators
 
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 
 class GeneratorTest {
