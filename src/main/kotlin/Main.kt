@@ -22,7 +22,7 @@ fun main() {
         .ffmpegPath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffmpeg.exe")
         .probePath("C:\\ProgramData\\chocolatey\\lib\\ffmpeg-full\\tools\\ffmpeg\\bin\\ffprobe.exe")
         .videoAmount(1)
-        .perVideo(5)
+        .perVideo(7)
         .outro("Follow us for more!")
         .backVids(listOf("Air_Parkour", "Hypixel_Parkour", "Spiral_Parkour", "Scenic_Parkour"))
         .randomSource()
